@@ -1,3 +1,5 @@
+package Employee_Inheritance;
+
 public class Employee {
     final private String firstName;
     final private String lastName;
@@ -23,7 +25,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return String.format("Employee [Name: %s %s, SSN: %s]",
+        return String.format("Employee_Inheritance.Employee [Name: %s %s, SSN: %s]",
                 getFirstName(), getLastName(), getSSN());
     }
 }

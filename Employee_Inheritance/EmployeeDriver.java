@@ -1,3 +1,5 @@
+package Employee_Inheritance;
+
 public class EmployeeDriver {
     public static void main(String[] args) {
         SalariedEmployee joe = new SalariedEmployee("Joe", "Jones", "111-11-1111", 2500.00f);

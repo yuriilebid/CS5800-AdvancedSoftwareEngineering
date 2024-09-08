@@ -1,3 +1,5 @@
+package Employee_Inheritance;
+
 public class SalariedEmployee extends Employee {
     private float weeklySalary;
 
@@ -21,7 +23,7 @@ public class SalariedEmployee extends Employee {
 
     @Override
     public String toString() {
-        return String.format("Employee [Name: %s %s, SSN: %s, Weekly Salary: $%.2f]",
+        return String.format("Employee_Inheritance.Employee [Name: %s %s, SSN: %s, Weekly Salary: $%.2f]",
                 getFirstName(), getLastName(), getSSN(), this.weeklySalary);
     }
 }

@@ -1,3 +1,5 @@
+package Employee_Inheritance;
+
 public class HourlyEmployee extends Employee {
     public static final float MINIMUM_WAGE = 15.00f;
     private float wage;
@@ -47,7 +49,7 @@ public class HourlyEmployee extends Employee {
 
     @Override
     public String toString() {
-        return String.format("Employee [Name: %s %s, SSN: %s, Wage: $%.2f, Hours Worked: $%.2f]",
+        return String.format("Employee_Inheritance.Employee [Name: %s %s, SSN: %s, Wage: $%.2f, Hours Worked: $%.2f]",
                 getFirstName(), getLastName(), getSSN(), this.wage, this.hoursWorked);
     }
 }
