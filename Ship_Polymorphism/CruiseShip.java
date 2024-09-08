@@ -1,16 +1,15 @@
 package Ship_Polymorphism;
 
 public class CruiseShip extends Ship {
-    int passengersCapacity;
-
-   public  CruiseShip(String name, String year) {
-       super(name, year);
-       this.passengersCapacity = 0; // Default value
-   }
+    private int passengersCapacity;
 
     public CruiseShip(String name, String year, int passengersCapacity) {
         super(name, year);
         this.passengersCapacity = passengersCapacity;
+    }
+
+    public CruiseShip(String name, String year) {
+        this(name, year, 0);
     }
 
     public void setPassengersCapacity(int pCapacity) {
