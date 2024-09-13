@@ -1,4 +1,4 @@
-package Ship_Polymorphism;
+package HomeWork1.ShipPolymorphism;
 
 public class ShipTest {
     public static void main(String[] args) {
@@ -9,7 +9,7 @@ public class ShipTest {
         ships[2] = new CargoShip("Freight Carrier", "2015", 50000);
 
         for (Ship ship : ships) {
-            ship.printShip();
+            ship.printShipInfo();
         }
     }
 }

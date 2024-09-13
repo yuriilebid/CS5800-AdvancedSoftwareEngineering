@@ -1,4 +1,4 @@
-package Course_Aggregation;
+package HomeWork1.CourseAggregation;
 
 import java.util.ArrayList;
 

@@ -1,20 +1,15 @@
-package Ship_Polymorphism;
+package HomeWork1.ShipPolymorphism;
 
 public class CargoShip extends Ship {
-    int cargoCapacity;
-
-    public CargoShip(String name, String year) {
-        super(name, year);
-        this.cargoCapacity = 0; // Default value
-    }
+    private int cargoCapacity;
 
     public CargoShip(String name, String year, int cargoCapacity) {
         super(name, year);
-        this.cargoCapacity = cargoCapacity;
+        this.cargoCapacity = validateShipCapacity(cargoCapacity);
     }
 
-    public void setCargoCapacity(int cCapacity) {
-        this.cargoCapacity = cCapacity;
+    public void setCargoCapacity(int capacity) {
+        this.cargoCapacity = validateShipCapacity(capacity);
     }
 
     public int getCargoCapacity() {
@@ -22,7 +17,7 @@ public class CargoShip extends Ship {
     }
 
     @Override
-    public void printShip() {
+    public void printShipInfo() {
         System.out.printf("Ship [Name: %s, Year: %s, Cargo Capacity: %d]%n",
                 super.getName(), super.getBuildYear(), this.cargoCapacity);
     }
