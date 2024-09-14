@@ -1,6 +1,6 @@
 package HomeWork1.CourseAggregation;
 
-public class DriverTest {
+public class CourseDriver {
     public static void main(String[] args) {
         Instructor instructor1 = new Instructor("John", "Doe", 101);
         Instructor instructor2 = new Instructor("Jane", "Smith", 102);
