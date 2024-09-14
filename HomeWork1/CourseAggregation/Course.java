@@ -1,30 +1,33 @@
 package HomeWork1.CourseAggregation;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 class Instructor {
-    private final String firstName;
-    private final String lastName;
+    private String firstName;
+    private String lastName;
     private int officeNumber;
 
-    public Instructor(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.officeNumber = 0; // Default value
-    }
-
     public Instructor(String firstName, String lastName, int officeNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.officeNumber = officeNumber;
+        this.firstName = validateNonEmptyString(firstName, "first name");
+        this.lastName = validateNonEmptyString(lastName, "last name");
+        this.officeNumber = validatePositiveInteger(officeNumber, "office num");
     }
 
     public String getFirstName() {
         return this.firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = validateNonEmptyString(firstName, "first name");
+    }
+
     public String getLastName() {
         return this.lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = validateNonEmptyString(lastName, "last name");
     }
 
     public int getOfficeNumber() {
@@ -32,32 +35,77 @@ class Instructor {
     }
 
     public void setOfficeNumber(int officeNumber) {
-        this.officeNumber = officeNumber;
+        this.officeNumber = validatePositiveInteger(officeNumber, "office num");
+    }
+
+    private static String validateNonEmptyString(String value, String fieldName) {
+        if (value == null || value.trim().isEmpty()) {
+            throw new IllegalArgumentException(fieldName + " is null or empty");
+        }
+        return value;
+    }
+
+    private static int validatePositiveInteger(int value, String fieldName) {
+        if (value <= 0) {
+            throw new IllegalArgumentException(fieldName + " must be > 0");
+        }
+        return value;
+    }
+
+    public void printInfo() {
+        System.out.printf("Name: %s %s\n",
+                this.firstName,
+                this.lastName);
     }
 }
 
 // Can be used record instead starting from Java14
 class TextBook {
-    private final String title;
-    private final String author;
-    private final String publisher;
+    private String title;
+    private String author;
+    private String publisher;
 
     public TextBook(String title, String author, String publisher) {
-        this.title = title;
-        this.author = author;
-        this.publisher = publisher;
+        this.title = validateNonEmptyString(title, "title");
+        this.author = validateNonEmptyString(author, "author");
+        this.publisher = validateNonEmptyString(publisher, "publisher");
     }
 
     public String getTitle() {
         return this.title;
     }
 
+    public void setTitle(String title) {
+        this.title = validateNonEmptyString(title, "title");
+    }
+
     public String getAuthor() {
         return this.author;
     }
 
+    public void setAuthor(String author) {
+        this.author = validateNonEmptyString(author, "author");
+    }
+
     public String getPublisher() {
         return this.publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = validateNonEmptyString(publisher, "publisher");
+    }
+
+    private static String validateNonEmptyString(String value, String fieldName) {
+        if (value == null || value.trim().isEmpty()) {
+            throw new IllegalArgumentException(fieldName + " is null or empty");
+        }
+        return value;
+    }
+
+    public void printInfo() {
+        System.out.printf("Title: %s, Author: %s\n",
+                this.title,
+                this.author);
     }
 }
 
@@ -67,10 +115,7 @@ public class Course {
     private final ArrayList<TextBook> textBooks;
 
     public Course(String courseName, Instructor instructor, TextBook textBook) {
-        if(instructor == null || textBook == null) {
-            throw new IllegalArgumentException("Instructor and TextBook cannot be null");
-        }
-        this.name = courseName;
+        this.name = validateNonEmptyString(courseName, "courseName");
         this.instructors = new ArrayList<>();
         this.textBooks = new ArrayList<>();
         this.instructors.add(instructor);
@@ -78,7 +123,7 @@ public class Course {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = validateNonEmptyString(name, "courseName");
     }
 
     public String getName() {
@@ -86,28 +131,38 @@ public class Course {
     }
 
     public void addInstructor(Instructor instructor) {
-        this.instructors.add(instructor);
+        this.instructors.add(Objects.requireNonNull(instructor,
+                "Instructor in null"));
     }
 
     public void addBook(TextBook book) {
-        this.textBooks.add(book);
+        this.textBooks.add(Objects.requireNonNull(book, "Book is null"));
     }
 
     public void printCourseInfo() {
         System.out.printf("Course: %s\n", this.name);
         System.out.println("Instructors:");
-        for (Instructor instructor : instructors) {
-            System.out.printf("  Name: %s %s, Office Number: %d\n",
-                    instructor.getFirstName(),
-                    instructor.getLastName(),
-                    instructor.getOfficeNumber());
-        }
+        printAllInstructors();
         System.out.println("TextBooks:");
-        for (TextBook book : textBooks) {
-            System.out.printf("  Title: %s, Author: %s, Publisher: %s\n",
-                    book.getTitle(),
-                    book.getAuthor(),
-                    book.getPublisher());
+        printAllBooks();
+    }
+
+    public void printAllInstructors() {
+        for (Instructor instructor : instructors) {
+            instructor.printInfo();
         }
+    }
+
+    public void printAllBooks() {
+        for (TextBook book : textBooks) {
+            book.printInfo();
+        }
+    }
+
+    private static String validateNonEmptyString(String value, String fieldName) {
+        if (value == null || value.trim().isEmpty()) {
+            throw new IllegalArgumentException(fieldName + " is null or empty");
+        }
+        return value;
     }
 }
