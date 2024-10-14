@@ -61,8 +61,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return String.format("HomeWork1.EmployeeInheritance " +
-                        "[Name: %s %s, SSN: %s]",
+        return String.format("[Name: %s %s, SSN: %s]",
                 getFirstName(), getLastName(), getSocialSecurityNumber());
     }
 }

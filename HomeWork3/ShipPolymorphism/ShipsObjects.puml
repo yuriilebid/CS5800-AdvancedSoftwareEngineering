@@ -1,0 +1,27 @@
+@startuml
+
+class Ship {
+}
+
+object "ship1: Ship" as s1 {
+  name = "Generic Ship"
+  buildYear = "1990"
+}
+
+object "ship2: CruiseShip" as s2 {
+  name = "Luxury Cruise"
+  buildYear = "2020"
+  passengersCapacity = 300
+}
+
+object "ship3: CargoShip" as s3 {
+  name = "Freight Carrier"
+  buildYear = "2015"
+  cargoCapacity = 50000
+}
+
+Ship <|-- s1
+Ship <|-- s2
+Ship <|-- s3
+
+@enduml

@@ -12,12 +12,12 @@ public class FolderDriver {
         app.addSubFolder(new Folder("views"));
 
         Folder publicP = new Folder("public");
-        publicP.addFile(".htaccess");
-        publicP.addFile(".htrouter.php");
-        publicP.addFile(".index.php");
+        publicP.addFile("htaccess");
+        publicP.addFile("htrouter.php");
+        publicP.addFile("index.php");
 
         Folder sourceFiles = new Folder("SourceFiles");
-        sourceFiles.addSubFolder(new Folder(".phalcon"));
+        sourceFiles.addSubFolder(new Folder("phalcon"));
         sourceFiles.addSubFolder(app);
         sourceFiles.addSubFolder(new Folder("cache"));
         sourceFiles.addSubFolder(publicP);
@@ -33,12 +33,12 @@ public class FolderDriver {
 
         // Delete the 'app' folder and print the structure
         root.deleteFolder("app");
-        System.out.println("\nFolder Structure after deleting 'app':");
+        System.out.println("\nAfter deleting 'app':");
         root.printAll();
 
         // Delete the 'public' folder and print the structure
         root.deleteFolder("public");
-        System.out.println("\nFolder Structure after deleting 'public':");
+        System.out.println("\nAfter deleting 'public':");
         root.printAll();
     }
 }

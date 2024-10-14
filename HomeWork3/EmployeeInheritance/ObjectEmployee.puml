@@ -1,0 +1,63 @@
+@startuml
+
+object "<u>joe:SalariedEmployee</u>" as joe {
+    firstName = "Joe"
+    lastName = "Jones"
+    socialSecurityNumber = "111-11-1111"
+    weeklySalary = 2500.00
+}
+
+object "<u>stephanie:HourlyEmployee</u>" as stephanie {
+    firstName = "Stephanie"
+    lastName = "Smith"
+    socialSecurityNumber = "222-22-2222"
+    hourWage = 25.00
+    hoursWorked = 32.00
+}
+
+object "<u>mary:HourlyEmployee</u>" as mary {
+    firstName = "Mary"
+    lastName = "Quinn"
+    socialSecurityNumber = "333-33-3333"
+    hourWage = 19.00
+    hoursWorked = 47.00
+}
+
+object "<u>nicole:CommissionEmployee</u>" as nicole {
+    firstName = "Nicole"
+    lastName = "Dior"
+    socialSecurityNumber = "444-44-4444"
+    commissionRate = 0.15
+    grossSales = 50000.00
+}
+
+object "<u>renwa:BaseEmployee</u>" as renwa {
+    firstName = "Renwa"
+    lastName = "Chanel"
+    socialSecurityNumber = "555-55-5555"
+    baseSalary = 1700.00
+}
+
+object "<u>mike:BaseEmployee</u>" as mike {
+    firstName = "Mike"
+    lastName = "Davenport"
+    socialSecurityNumber = "666-66-6666"
+    baseSalary = 95000.00
+}
+
+object "<u>mahnaz:BaseEmployee</u>" as mahnaz {
+    firstName = "Mahnaz"
+    lastName = "Vaziri"
+    socialSecurityNumber = "777-77-7777"
+    baseSalary = 40000.00
+}
+
+joe --> "Employee" : inherits
+stephanie --> "Employee" : inherits
+mary --> "Employee" : inherits
+nicole --> "Employee" : inherits
+renwa --> "Employee" : inherits
+mike --> "Employee" : inherits
+mahnaz --> "Employee" : inherits
+
+@enduml

@@ -26,8 +26,7 @@ public class BaseEmployee extends Employee {
 
     @Override
     public String toString() {
-        return String.format("HomeWork1.EmployeeInheritance " +
-                        "[Name: %s %s, SSN: %s, Base Salary: $%.2f]",
+        return String.format("[Name: %s %s, SSN: %s, Base Salary: $%.2f]",
                 getFirstName(), getLastName(), getSocialSecurityNumber(),
                 this.baseSalary);
     }

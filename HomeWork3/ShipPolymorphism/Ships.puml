@@ -1,0 +1,32 @@
+@startuml ShipClassDiagram
+
+class Ship {
+    - name : String
+    - buildYear : String
+
+    + getName() : String
+    + setName(shipName : String) : void
+    + getBuildYear() : String
+    + printShipInfo() : void
+}
+
+class CargoShip {
+    - cargoCapacity : int
+
+    + setCargoCapacity(capacity : int) : void
+    + getCargoCapacity() : int
+    + printShipInfo() : void
+}
+
+class CruiseShip {
+    - passengersCapacity : int
+
+    + setPassengersCapacity(capacity : int) : void
+    + getPassengersCapacity() : int
+    + printShipInfo() : void
+}
+
+Ship <|-- CargoShip
+Ship <|-- CruiseShip
+
+@enduml

@@ -1,0 +1,70 @@
+@startuml
+
+class Employee
+class BaseEmployee
+class CommissionEmployee
+class HourlyEmployee
+class SalariedEmployee
+
+Employee <|-- BaseEmployee
+Employee <|-- CommissionEmployee
+Employee <|-- HourlyEmployee
+Employee <|-- SalariedEmployee
+
+class Employee {
+    - firstName : String
+    - lastName : String
+    - socialSecurityNumber : String
+
+    + getFirstName() : String
+    + setFirstName(firstName : String) : void
+    + getLastName() : String
+    + setLastName(lastName : String) : void
+    + getSocialSecurityNumber() : String
+    + setSocialSecurityNumber(socialSecurityNumber : String) : void
+    + toString() : String
+}
+
+class HourlyEmployee {
+    - hourWage : float
+    - hoursWorked : float
+
+    + getHourWage() : float
+    + setHourWage(hourWage : float) : void
+    + getHoursWorked() : float
+    + setHoursWorked(hoursWorked : float) : void
+    + addHoursWorked(additionalHours : float) : void
+    + resetWorkHours() : void
+    + toString() : String
+}
+
+class CommissionEmployee {
+    - commissionRate : float
+    - grossSales : float
+
+    + getCommissionRate() : float
+    + setCommissionRate(commissionRate : float) : void
+    + getGrossSales() : float
+    + setGrossSales(grossSales : float) : void
+    + addGrossSales(additionalSales : float) : void
+    + resetGrossSales() : void
+    + toString() : String
+}
+
+class SalariedEmployee {
+    - weeklySalary : float
+
+    + getWeeklySalary() : float
+    + setWeeklySalary(weeklySalary : float) : void
+    + toString() : String
+}
+
+class BaseEmployee {
+    - baseSalary : float
+
+    + getBaseSalary() : float
+    + setBaseSalary(baseSalary : float) : void
+    + toString() : String
+}
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml
+
+object "<u>javaCourse:Course</u>" as javaCourse {
+  courseName : "Java Programming"
+  instructors : instructor1, instructor2
+  textBooks : book1, book2
+}
+
+object "<u>book1:TextBook</u>" as book1 {
+  title : "Introduction to Java"
+  author : "James Gosling"
+  publisher : "Sun Microsystems"
+}
+
+object "<u>book2:TextBook</u>" as book2 {
+  title : "Advanced Java Programming"
+  author : "Herbert Schildt"
+  publisher : "McGraw-Hill"
+}
+
+object "<u>instructor1:Instructor</u>" as instructor1 {
+  firstName : "John"
+  lastName : "Doe"
+  officeNumber : 101
+}
+
+object "<u>instructor2:Instructor</u>" as instructor2 {
+  firstName : "Jane"
+  lastName : "Smith"
+  officeNumber : 102
+}
+
+instructor1 o-- javaCourse : teaches >
+instructor2 o-- javaCourse : teaches >
+book1 o-- javaCourse : used in >
+book2 o-- javaCourse : used in >
+
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+
+class File {
+    -name : String
+
+    +File(name : String)
+    +setName(name : String) : void
+    +getName() : String
+    +printName() : void
+    +printName(tabulation : String) : void
+    +toString() : String
+}
+
+class Folder {
+    -name : String
+    -subFolders : ArrayList<Folder>
+    -files : ArrayList<File>
+
+    +Folder(name : String)
+    +setName(name : String) : void
+    +getName() : String
+    +addSubFolder(folderName : String) : void
+    +removeFolderFromCurrentFolder(folderName : String) : void
+    +deleteFolder(folderName : String) : void
+    +addFile(fileName : String) : void
+    +removeFileFromCurrentFolder(fileName : String) : void
+    +deleteFile(fileName : String) : void
+    +printAll() : void
+    +printAllFolders(tabulation : String) : void
+    +printAllFiles(tabulation : String) : void
+    +toString() : String
+}
+
+Folder "1" *-- "many" Folder : contains >
+Folder "1" *-- "many" File : contains >
+
+@enduml

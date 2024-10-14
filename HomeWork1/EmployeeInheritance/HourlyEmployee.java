@@ -57,8 +57,7 @@ public class HourlyEmployee extends Employee {
 
     @Override
     public String toString() {
-        return String.format("HomeWork1.EmployeeInheritance " +
-                        "[Name: %s %s, SSN: %s, Wage: $%.2f, Hours Worked: $%.2f]",
+        return String.format("[Name: %s %s, SSN: %s, Wage: $%.2f, Hours Worked: $%.2f]",
                 getFirstName(), getLastName(), getSocialSecurityNumber(),
                 this.hourWage, this.hoursWorked);
     }
