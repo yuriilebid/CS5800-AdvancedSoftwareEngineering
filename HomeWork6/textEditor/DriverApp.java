@@ -19,7 +19,7 @@ public class DriverApp {
 
         try {
             editor.saveDocument("HelloWorldCS5800.txt");
-            System.out.println("Document saved successfully!");
+            System.out.println("Document saved");
         } catch (IOException e) {
             e.printStackTrace();
         }

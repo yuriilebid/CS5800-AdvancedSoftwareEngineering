@@ -30,7 +30,7 @@ class TextEditorTest {
             assertEquals(1, loadedEditor.getDocument().getCharacters().size());
             new File(filename).delete();
         } catch (Exception e) {
-            fail("Exception should not be thrown");
+            fail("Exception that should not be thrown");
         }
     }
 }

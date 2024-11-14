@@ -1,0 +1,25 @@
+@startuml
+
+interface Cloneable {
+    +clone(): Object
+}
+
+class Book {
+    - title: String
+    - author: String
+    - chapters: List<String>
+
+    + Book(title: String, author: String, chapters: List<String>)
+    + getTitle(): String
+    + setTitle(title: String): void
+    + getAuthor(): String
+    + setAuthor(author: String): void
+    + getChapters(): List<String>
+    + setChapters(chapters: List<String>): void
+    + clone(): Object {Override clone()}
+    + toString(): String {Override toString()}
+}
+
+Cloneable <|-- Book
+
+@enduml
