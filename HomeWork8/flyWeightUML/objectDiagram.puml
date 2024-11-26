@@ -1,0 +1,120 @@
+@startuml
+title Object Diagram After "HelloWorldCS5800" Is Entered
+
+object "testDocument : Document" as testDocument
+object "propertiesFactory : CharacterPropertiesFactory" as propertiesFactory
+object "flyweights : Map<String, CharacterProperties>" as flyweights
+
+object "cp1 : CharacterProperties" as cp1
+cp1 : font = "Arial"
+cp1 : color = "Black"
+cp1 : size = 16
+
+object "cp2 : CharacterProperties" as cp2
+cp2 : font = "Arial"
+cp2 : color = "Black"
+cp2 : size = 14
+
+object "cp3 : CharacterProperties" as cp3
+cp3 : font = "Verdana"
+cp3 : color = "Blue"
+cp3 : size = 18
+
+object "cp4 : CharacterProperties" as cp4
+cp4 : font = "Verdana"
+cp4 : color = "Red"
+cp4 : size = 12
+
+testDocument --> propertiesFactory
+propertiesFactory --> flyweights
+flyweights --> cp1
+flyweights --> cp2
+flyweights --> cp3
+flyweights --> cp4
+
+object "charactersList : List<Character>" as charactersList
+testDocument --> charactersList
+
+' Character instances
+object "char0 : Character" as char0
+char0 : character = 'H'
+char0 --> cp1
+
+object "char1 : Character" as char1
+char1 : character = 'e'
+char1 --> cp2
+
+object "char2 : Character" as char2
+char2 : character = 'l'
+char2 --> cp2
+
+object "char3 : Character" as char3
+char3 : character = 'l'
+char3 --> cp2
+
+object "char4 : Character" as char4
+char4 : character = 'o'
+char4 --> cp2
+
+object "char5 : Character" as char5
+char5 : character = 'W'
+char5 --> cp1
+
+object "char6 : Character" as char6
+char6 : character = 'o'
+char6 --> cp2
+
+object "char7 : Character" as char7
+char7 : character = 'r'
+char7 --> cp2
+
+object "char8 : Character" as char8
+char8 : character = 'l'
+char8 --> cp2
+
+object "char9 : Character" as char9
+char9 : character = 'd'
+char9 --> cp2
+
+object "char10 : Character" as char10
+char10 : character = 'C'
+char10 --> cp3
+
+object "char11 : Character" as char11
+char11 : character = 'S'
+char11 --> cp3
+
+object "char12 : Character" as char12
+char12 : character = '5'
+char12 --> cp4
+
+object "char13 : Character" as char13
+char13 : character = '8'
+char13 --> cp4
+
+object "char14 : Character" as char14
+char14 : character = '0'
+char14 --> cp4
+
+object "char15 : Character" as char15
+char15 : character = '0'
+char15 --> cp4
+
+charactersList --> char0
+charactersList --> char1
+charactersList --> char2
+charactersList --> char3
+charactersList --> char4
+charactersList --> char5
+charactersList --> char6
+charactersList --> char7
+charactersList --> char8
+charactersList --> char9
+charactersList --> char10
+charactersList --> char11
+charactersList --> char12
+charactersList --> char13
+charactersList --> char14
+charactersList --> char15
+
+@enduml
